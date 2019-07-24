@@ -5,3 +5,15 @@
   background: url("/christiana-rivers-3_mQjo4Vb6A-unsplash.jpg") no-repeat center center;
   background-size: cover;
 }
+
+.notice {
+  background-color: lightblue;
+  color: white;
+  text-align: center;
+}
+
+.alert {
+  background-color: orangered;
+  color: white;
+  text-align: center;
+}

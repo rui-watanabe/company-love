@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :tweets do
     resources  :comments, only: [:create]    
   end
-  resources :users, only: [:show,:index] 
+  resources :users, only: [:show,:edit,:update] 
   get "home" => "home#top"
   get 'about' => 'home#about'
 end
