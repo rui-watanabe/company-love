@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warning, :danger
 
   def after_sign_out_path_for(resource)
-    'home' # サインアウト後のリダイレクト先
+    home_path # サインアウト後のリダイレクト先
   end
 
   def configure_permitted_parameters

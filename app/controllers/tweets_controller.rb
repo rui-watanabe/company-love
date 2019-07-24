@@ -14,11 +14,15 @@ class TweetsController < ApplicationController
 
   def create
     Tweet.create(image: tweet_params[:image], text: tweet_params[:text], user_id: current_user.id)
+    flash[:notice] = "投稿しました"
+    redirect_to root_path
   end
 
   def destroy
     tweet = Tweet.find(params[:id])
     tweet.destroy if tweet.user_id == current_user.id
+    flash[:notice] = "投稿を削除しました"
+    redirect_to root_path
       #後置ifをすることで、一文にまとめられる（elsifやelseがない場合）
       #if tweet.user_id == current_user.id
       #tweet.destroy
@@ -32,6 +36,8 @@ class TweetsController < ApplicationController
   tweet = Tweet.find(params[:id])
   if tweet.user_id == current_user.id
     tweet.update(tweet_params)
+    flash[:notice] = "投稿を更新しました"
+    redirect_to root_path
   end
  end
 

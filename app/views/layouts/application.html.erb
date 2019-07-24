@@ -32,10 +32,13 @@
         <a class="nav-link" href="/tweets/new">投稿する</a>
       </li>
       <li class="nav-item">
-        <%= link_to("プロフィール編集", edit_user_path(current_user) ,{class: "navbar-brand"}) %>
+        <%= link_to("プロフィール編集", edit_user_path(current_user) ,{class: "nav-link"}) %>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="/users/<%= current_user.id %>">マイページ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="/">投稿一覧</a>
       </li>
       <% else %>
       <li class="nav-item">
