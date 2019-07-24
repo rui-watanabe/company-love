@@ -1,5 +1,5 @@
 <div class="contents row" >
-  <div class="user_image"><%= image_tag  current_user.avatar %></div>
+  <%# <div class="user_image"><%= image_tag  current_user.avatar %></div> %>
    <h3><%=  current_user.name%> <span>さんのマイページ</span></h3>
     <% @tweets.each do |tweet| %>
       <div class="content_post" style="background-image: url(<%= tweet.image %>);">

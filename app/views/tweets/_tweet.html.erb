@@ -1,24 +1,27 @@
- <div class="content_post" style="background-image: url(<%= tweet.image %>);">
-      <div class="more">
-        <span><%= image_tag 'arrow_top.png' %></span>
-          <ul class="more_list">
-            <li>
-              <%= link_to '詳細', "/tweets/#{tweet.id}", method: :get %>
-            </li>
+
+<div class="card-group">
+  <div class="card" style="width:18rem;">
+    <%= image_tag current_user.avatar, class:"card-img-top",alt:"Card image cap" %></div>
+    <div class="card-body">
+    <h4 class="card-title"><%= tweet.user.name %></h4>
+      <p class="card-text"><%= tweet.text%></p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <div class="row">
+        <div class="col-md">
+            <button class="btn btn-info">
+              <%= link_to '詳細', "/tweets/#{tweet.id}", method: :get%>
+            </button>
             <% if user_signed_in? && current_user.id == tweet.user_id %>
-              <li>
+              <button class="btn btn-info">
                 <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %>
-              </li>
-              <li>
-                <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
-              </li>
+              </button>
+              <button class="btn btn-info">
+                <%= link_to '削除', "/tweets/#{tweet.id}"%>
+              </button>
             <% end %>
           </ul>
         </div>
-        <%= simple_format(tweet.text) %>
-        <span class="name">
-          <a href="/users/<%= tweet.user_id %>">
-            <span>投稿者</span><%= tweet.user.name %>
-          </a>
-        </span>
       </div>
+    </div>
+  </div>
+</div>
