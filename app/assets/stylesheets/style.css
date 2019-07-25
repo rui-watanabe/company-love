@@ -17,3 +17,13 @@
   color: white;
   text-align: center;
 }
+
+.card {
+  min-width: 220px;
+  max-width: 270px;
+  margin-bottom: 10px !important;
+  margin: auto;
+}
+.sidebar {
+  min-height: 500px;
+}
