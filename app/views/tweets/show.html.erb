@@ -1,26 +1,27 @@
-<div class ="contents row">
-  <div class="content_post" style="background-image: url(<%= @tweet.image %>);">
-    <% if user_signed_in? && current_user.id == @tweet.user_id %>
-      <div class="more">
-        <span><%= image_tag 'arrow_top.png' %></span>
-      <ul class="more_list">
-        <li>
-          <%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %>
-        </li>
-        <li>
-          <%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %>
-        </li>
-      </ul>
+<div class="card-group">
+  <div class="card" style="width:18rem;">
+    <%= image_tag current_user.avatar, class:"card-img-top",alt:"Card image cap" %></div>
+    <div class="card-body">
+    <h4 class="card-title"><%= @tweet.user.name %></h4>
+      <p class="card-text"><%= @tweet.text%></p>
+      <p class="card-text"><small class="text-muted"><%= tweet.created_at.strftime("%Y-%m-%d %H:%M")%></small></p>
+      <div class="row">
+        <div class="col-md">
+            <% if user_signed_in? && current_user.id == @tweet.user_id %>
+              <button class="btn btn-info">
+                <%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %>
+              </button>
+              <button class="btn btn-info">
+                <%= link_to '削除', "/tweets/#{@tweet.id}"%>
+              </button>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
-    <% end %>
-    <%= simple_format(@tweet.text) %>
-    <span class="name">
-      <a href="/users/<%= @tweet.user.id %>">
-        <span>投稿者</span><%= @tweet.user.name %>
-      </a>
-    </span>
   </div>
-   <div class="container"> 
+</div>
+
     <!-- ここからフォーム -->
     <% if current_user %>
       <%= form_tag("/tweets/#{@tweet.id}/comments",  method: :post,  id: "new_comment" ) do %>

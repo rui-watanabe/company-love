@@ -25,17 +25,20 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <% if user_signed_in? %>
-      <li class="nav-item active">
+      <li class="nav-item">
         <%= link_to 'ログアウト', destroy_user_session_path, class: "nav-link", method: :delete %> 
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/posts/new">投稿する</a>
+        <a class="nav-link" href="/tweets/new">投稿する</a>
       </li>
       <li class="nav-item">
-        <%= link_to("ユーザー一覧", "/users/index" ,{class: "navbar-brand"}) %>
+        <%= link_to("プロフィール編集", edit_user_path(current_user) ,{class: "nav-link"}) %>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="/users/<%= current_user.id %>">マイページ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="/">投稿一覧</a>
       </li>
       <% else %>
       <li class="nav-item">
@@ -52,13 +55,8 @@
    </ul>
    </div>
   </nav>
-<% if notice %>
-  <p class="notice"><%= notice %></p>
-<% elsif alert %>
-  <p class="alert"><%= alert %></p>
-<% end %>
 
-
+  <%= render 'layouts/notifications' %>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

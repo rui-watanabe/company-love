@@ -77,3 +77,4 @@ gem 'bootstrap-sass'
 
 gem 'devise-bootstrap-views'
 
+gem 'rails-i18n'
