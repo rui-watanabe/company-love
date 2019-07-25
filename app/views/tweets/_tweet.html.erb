@@ -1,7 +1,7 @@
 
 <div class="card-group">
   <div class="card" style="width:18rem;">
-    <%= image_tag current_user.avatar, class:"card-img-top",alt:"Card image cap" %></div>
+    <%= image_tag tweet.user.avatar, class:"card-img-top",alt:"Card image cap" %></div>
     <div class="card-body">
     <h4 class="card-title"><%= tweet.user.name %></h4>
       <p class="card-text"><%= tweet.text%></p>
