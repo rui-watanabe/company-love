@@ -1,8 +1,8 @@
-<h1>DM</h1>
+<h1></h1>
 
 <h4>参加者</h4>
 <% @entries.each do |e| %>
-  <h5><strong><a href="/users/<%= e.user.id %>"><%= e.user.email%>さん</a></strong></h5>
+  <h5><strong><a href="/users/<%= e.user.id %>"><%= e.user.name %>さん</a></strong></h5>
 <% end %>
 
 <hr>
@@ -17,8 +17,8 @@
 <% end %>
 
 <%= form_for @message do |f| %>
-  <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :size => 70 %>
-  <%= f.hidden_field :room_id, :value => @room.id %>
+  <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70 %>
+  <%= f.hidden_field :room_id, value: @room.id %>
   <br>
   <%= f.submit "投稿する" %>
 <% end %>

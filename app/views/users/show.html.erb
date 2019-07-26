@@ -27,6 +27,7 @@
 <% if @user.id == current_user.id %>
 
 <% else %>
+  <% if current_user.followed_by? @user %>
   <% if @isRoom == true %>
     <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
   <% else %>
@@ -36,6 +37,7 @@
       <% end %>
       <%= f.submit "チャットを始める" %>
     <% end %>
+  <% end %>
   <% end %>
 <% end %>
 
