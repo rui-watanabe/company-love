@@ -78,3 +78,5 @@ gem 'bootstrap-sass'
 gem 'devise-bootstrap-views'
 
 gem 'rails-i18n'
+
+gem "acts_as_follower", github: "tcocca/acts_as_follower"
