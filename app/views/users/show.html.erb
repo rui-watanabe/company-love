@@ -2,12 +2,24 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
-          <h3><%=  current_user.name%> <span>さんのマイページ</span></h3>
+          <h3><%= @user.name %> <span>さんのマイページ</span></h3>
 
         <div class="card">
-            <div class="user_image"><%= image_tag  current_user.avatar %></div>
+            <div class="user_image"><%= image_tag @user.avatar %></div>
           <div class="card-body">
-            <p class="card-text"><%= current_user.profile %></p>
+            <p class="card-text"><%= @user.profile %></p>
           </div>
         </div>
       </div>
+
+<%= @user.follow_count %>
+<%= link_to "フォロー", {controller: :users,action: :follow_list,user_id: @user.id}, method: :get %>
+<%# クリックすると、フォローリストに飛ぶ %>
+<%= @user.followers_count %>
+<%= link_to "フォロワー", {controller: :users,action: :follower_list,user_id: @user.id}, method: :get %>
+<%# #クリックすると、フォロワーリストに飛ぶ %>
+
+<% if current_user.id != @user.id %>
+  <%= render 'follow_form' %>
+<% end %>
+<%# ユーザーがカレントユーザーじゃなかったら、'_follow_form.html.erb'を表示 %>
