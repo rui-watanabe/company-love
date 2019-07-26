@@ -8,8 +8,9 @@
 <hr>
 <% if @messages.present? %>
   <% @messages.each do |m| %>
+    <div class="user_image"><%= image_tag m.user.avatar %></div>
+    <small><strong><a href="/users/<%= m.user_id %>"><%= m.user.name %>さん</a></strong></small>
     <strong><%= m.content %></strong>
-    <small>by <strong><a href="/users/<%= m.user_id %>"><%= m.user.email %>さん</a></strong></small>
     <hr>
   <% end %>
 <% else %>
