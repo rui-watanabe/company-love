@@ -23,3 +23,22 @@
   <%= render 'follow_form' %>
 <% end %>
 <%# ユーザーがカレントユーザーじゃなかったら、'_follow_form.html.erb'を表示 %>
+
+<% if @user.id == current_user.id %>
+
+<% else %>
+  <% if current_user.followed_by? @user %>
+  <% if @isRoom == true %>
+    <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+  <% else %>
+    <%= form_for @room do |f| %>
+      <%= fields_for @entry do |e| %>
+        <%= e.hidden_field :user_id, :value=> @user.id %>
+      <% end %>
+      <%= f.submit "チャットを始める" %>
+    <% end %>
+  <% end %>
+  <% end %>
+<% end %>
+
+<%= link_to "ユーザー一覧に戻る","/users/index"  %>

@@ -13,4 +13,6 @@ class User < ApplicationRecord
   has_many :comments 
   acts_as_followable # フォロワー機能
   acts_as_follower   # フォロー機能
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
 end
