@@ -18,12 +18,11 @@
   text-align: center;
 }
 
-.card {
-  min-width: 220px;
-  max-width: 270px;
-  margin-bottom: 10px !important;
-  margin: auto;
+.main users-index{
+  margin: 0 auto;
 }
-.sidebar {
-  min-height: 500px;
+
+
+.card {
+  margin-bottom: 30px !important;
 }
