@@ -1,10 +1,15 @@
 <div class="account-page" id="account-page">
   <div class="account-page__inner clearfix">
     <div class="account-page__inner--left account-page__header"></div>
-    <h2>Edit Account</h2>
-    <h5>アカウントの編集</h5>
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn' %>
-    <%= link_to "トップページに戻る", :back, class: 'btn' %>
+    <h2 style="text-align:center;"><%= @user.name %>さんのアカウントを編集</h2>
+    <div class="container">
+    <div class="row">
+      <div class="col-lg-4" style= "margin:0 auto;">
+        <div class="card" >
+            <%= image_tag @user.avatar.variant(resize:'400x400').processed %>
+          <div class="card-body" style= "margin:0 auto;">
+            <p class="card-text" style="text-align:center;"><%= @user.profile %></p>
+    
     <div class="account-page__inner--right user-form">
       <%= form_for(current_user) do |f| %>
         <div class="field">
@@ -15,7 +20,7 @@
             <%= f.text_field :name, autofocus: true %>
           </div>
         </div>
-        <div class="field">
+        <div class="field"  style="padding-top:20px;>
           <div class="field-label">
             <%= f.label :avatar %>
           </div>
@@ -23,10 +28,23 @@
             <%= f.file_field :avatar %>
           </div>
         </div>
-        <div class="actions">
-          <%= f.submit "Update", class: 'btn' %>
+        <div class="actions" style="padding-top:20px;">
+          <%= f.submit "Update", class: 'btn btn-info'%>
         </div>
       <% end %>
+    
+      </div>
+      </div>
+            </div>
+    </div>
+        </div>
+      </div>
+
+
     </div>
   </div>
 </div>
+
+<%=link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn' %>
+    <%= link_to "トップページに戻る", :back, class: 'btn' %>
+

@@ -5,12 +5,12 @@
   <div class="border" style= "padding-top: 25px;">
   <div class="card-group">
   <div class="card">
-    <%= image_tag user.avatar.variant(resize:'400x400').processed %></div>
+    <%= image_tag user.avatar,style:"width:400px; height:400px;"%></div>
     <div class="card-body">
     <h4 class="card-title"><%= user.name %></h4>
       <p class="card-text">プロフィール：<br><%= user.profile%></p>
       <div class="button_wrapper" >
-      <button class="btn btn-info">
+      <button class="btn btn-info" >
         <%= link_to '詳細', "/users/#{user.id}"%>
       </button>
       </div>
