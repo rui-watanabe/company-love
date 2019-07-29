@@ -1,28 +1,18 @@
-<div class="contents row">
-  <div class="container">
-    <%= form_tag('/tweets', method: :post) do %>
-      <h3>
-        投稿する
-      </h3>
-      <input placeholder="Image Url" type="text" name="image">
-      <textarea cols="30" name="text" placeholder="text" rows="10"></textarea>           
-      <input type="submit" value="SENT">
-    <% end %>
-  </div>
-</div>
 
   <div class="container">
   <%= form_tag('/tweets', method: :post) do %>
     <h3 class="text-center" style="padding: 30px;">投稿する</h3>
  
   <div class="form-group">
-    <div class="col-sm-4" style="padding-left: 0px;">画像投稿</div>
-    <div class="col-sm-8">
-    <input type="file" name="image" id="image_picture" style="margin:0 auto;">
+    <div class="clearfix">
+    <div class="col-sm-4"  style="padding-left: 0px;">画像投稿</div>
+    <div class="col-sm-8" style="float:right;">
+    <div class="clearfix"> </div>
+    <input type="file" name="image" id="image_picture" style="text-align:center;">
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" style="padding-top: 30px;">
     <div class="col-sm-2">投稿</div>
     <div class="col-sm-10" style="padding: 3px;">
       <textarea class="form-control  input-sm" rows="5" name="text"　id="comment" placeholder="テキストを入力"></textarea>
@@ -31,7 +21,8 @@
    
   <div class="text-center" style="padding: 30px;">
 
-  <input type="submit" value="SENT">  </div>
+    <input class="btn btn-outline-primary" type="submit" value="SENT">
+ </div>
   <%# <button type="button" class="btn btn-success">投稿を送信<span class="glyphicon glyphicon-chevron-right"></span></button> %>
     <% end %>
 </div>

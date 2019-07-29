@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show]
 
   def index
-    @users = User.all
+    @users = User.where.not(id: current_user.id)
   end
 
   def show
@@ -29,6 +29,7 @@ class UsersController < ApplicationController
    
 
   def edit
+    @user=User.find(params[:id])
   end
 
   def update

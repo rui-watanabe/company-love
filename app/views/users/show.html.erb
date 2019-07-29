@@ -1,24 +1,21 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
-          <h3><%= @user.name %> <span>さんのマイページ</span></h3>
-
-        <div class="card">
-            <div class="user_image"><%= image_tag @user.avatar %></div>
-          <div class="card-body">
-            <p class="card-text"><%= @user.profile %></p>
-          </div>
-        </div>
-      </div>
-
+      <div class="col-lg-4" style= "margin:0 auto;">
+          <h3 style= "text-align:center; margin:10px; color: lightblue;"><%= @user.name %> <span>さんのページ</span></h3>
+        <div class="card" >
+            <%= image_tag @user.avatar.variant(resize:'400x400').processed %>
+          <div class="card-body" style= "margin:0 auto;">
+                      <p class="card-text" style="text-align:center; font-size: 30px;"><strong><%= current_user.name %></strong></p>       
+            <p class="card-text" style="text-align:center;"><%= @user.profile %></p>  
+<%if current_user.id==@user.id%>
 <%= @user.follow_count %>
 <%= link_to "フォロー", {controller: :users,action: :follow_list,user_id: @user.id}, method: :get %>
 <%# クリックすると、フォローリストに飛ぶ %>
 <%= @user.followers_count %>
 <%= link_to "フォロワー", {controller: :users,action: :follower_list,user_id: @user.id}, method: :get %>
 <%# #クリックすると、フォロワーリストに飛ぶ %>
-
+<%end%>
 <% if current_user.id != @user.id %>
   <%= render 'follow_form' %>
 <% end %>
@@ -29,16 +26,28 @@
 <% else %>
   <% if current_user.followed_by? @user %>
   <% if @isRoom == true %>
-    <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+    <p style="text-align:center; margin-top:10px;"><a href="/rooms/<%= @roomId %>">チャットへ</a>
   <% else %>
     <%= form_for @room do |f| %>
       <%= fields_for @entry do |e| %>
-        <%= e.hidden_field :user_id, :value=> @user.id %>
+        <%= e.hidden_field :user_id, value: @user.id %>
       <% end %>
-      <%= f.submit "チャットを始める" %>
+      <%= f.submit "チャットを始める", class: 'btn btn-outline-primary'%>
     <% end %>
   <% end %>
   <% end %>
 <% end %>
-
-<%= link_to "ユーザー一覧に戻る","/users/index"  %>
+</div>
+<%if current_user.id==@user.id%>
+<bottan style="margin: 0 auto;">
+<%= link_to "プロフィール編集",edit_user_path, class:"btn btn-outline-primary" %>
+</bottan>
+<% end %>
+<bottan style="padding-top: 10px; margin: 0 auto;">
+<%= link_to "ユーザー一覧に戻る","/users/index", class:"btn btn-outline-primary" %>
+</bottan>
+      </div>
+      </div>
+    </div>
+        </div>
+      </div>
