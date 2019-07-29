@@ -1,21 +1,20 @@
-<div class="contents row>
-<div class="border" style= "padding-top: 25px; margin: 0 auto;">
-<div class="card-group" style="margin: 20px auto;">
-  <div class="border" style="width:200px; height:200px;">
+<div class="contents row">
+<div class="card-group" style="width:60%;margin: 0 auto; padding:20px;">
+  <div class="border" style="width:200px; height:200px; ">
         <%= image_tag tweet.user.avatar,style:"width:200px; height:200px;" %></div>
-    <div class="card-body" style="position:relative;">
+    <div class="card-body" >
     <h4 class="card-title"><%= tweet.user.name %></h4>
-      <p class="card-text"><%= tweet.text%></p>
-      <p class="card-text"><small class="text-muted" style="position: absolute; bottom: 30px;"><%= tweet.created_at.strftime("%Y-%m-%d %H:%M")%></small></p>
-        <div class="bottan-wrapper" style="position: absolute; right: 0px; bottom: 35px;">
-            <button class="btn btn-info">
+      <p class="card-text" style="word-wrap:break-word;"><%= tweet.text%></p>
+      <p class="card-text"><small class="text-muted"><%= tweet.created_at.strftime("%Y-%m-%d %H:%M")%></small></p>
+        <div class="bottan-wrapper">
+            <button class="btn btn-outline-primary">
               <%= link_to '詳細', "/tweets/#{tweet.id}", method: :get%>
             </button>
             <% if user_signed_in? && current_user.id == tweet.user_id %>
-              <button class="btn btn-info">
+              <button class="btn btn-outline-primary">
                 <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %>
               </button>
-              <button class="btn btn-info">
+              <button class="btn btn-outline-primary">
                 <%= link_to '削除', "/tweets/#{tweet.id}"%>
               </button>
             <% end %>

@@ -1,6 +1,6 @@
-<div class="card-group" style="width:80%; margin 0 auto;">
+<div class="card-group" style="width:80%; margin: 30px;">
   <div class="card" style="width:18rem;">
-    <%= image_tag @tweet.user.avatar.variant(resize:'400x400').processed %></div>
+    <%= image_tag @tweet.user.avatar.variant(resize:'400x600').processed %></div>
     <div class="card-body">
     <h4 class="card-title"><%= @tweet.user.name %></h4>
       <p class="card-text"><%= @tweet.text%></p>
@@ -8,10 +8,10 @@
       <div class="row">
         <div class="col-md">
             <% if user_signed_in? && current_user.id == @tweet.user_id %>
-              <button class="btn btn-info">
+              <button class="btn btn-outline-primary">
                 <%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %>
               </button>
-              <button class="btn btn-info">
+              <button class="btn btn-outline-primary">
                 <%= link_to '削除', "/tweets/#{@tweet.id}"%>
               </button>
             <% end %>
@@ -26,10 +26,10 @@
     <% if current_user %>
       <%= form_tag("/tweets/#{@tweet.id}/comments",  method: :post,  id: "new_comment",style:"text-align:center;") do %>
         <textarea cols="30" name="text" placeholder="コメントする" rows="2" class="textbox"></textarea>
-        <input type="submit" value="SENT">
+      <input class="btn btn-outline-primary" type="submit" value="SENT">
       <% end %>
     <% end %>
-    <div class="comments">   
+    <div class="comments" style="margin: 30px;">   
       <h4>＜コメント一覧＞</h4>
       <% if @comments %>
         <% @comments.each do |comment| %>

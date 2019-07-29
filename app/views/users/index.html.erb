@@ -1,16 +1,16 @@
 <div class="main users-index">
   <div class="container">
-    <h1 class="users-heading" style="text-align:center; padding-bottom:40px;">ユーザー一覧</h1>
+    <h1 class="users-heading" style="text-align:center; padding:40px;">ユーザー一覧</h1>
     <% @users.each do |user| %>
   <div class="border" style= "padding-top: 25px;">
   <div class="card-group">
   <div class="card">
-    <%= image_tag user.avatar,style:"width:400px; height:400px;"%></div>
+    <%= image_tag user.avatar.variant(resize:'400x600').processed%></div>
     <div class="card-body">
     <h4 class="card-title"><%= user.name %></h4>
-      <p class="card-text">プロフィール：<br><%= user.profile%></p>
+      <p class="card-text">プロフィール：<%= user.profile%></p>
       <div class="button_wrapper" >
-      <button class="btn btn-info" >
+      <button class="btn btn-outline-primary" >
         <%= link_to '詳細', "/users/#{user.id}"%>
       </button>
       </div>
@@ -20,7 +20,3 @@
 </div>
 </div>
 </div>
-
-<button class="btn btn-primary">マッチング済</button>
-<button class="btn btn-primary">いいね済</button>
-<button class="btn btn-primary">いいねされた</button>
