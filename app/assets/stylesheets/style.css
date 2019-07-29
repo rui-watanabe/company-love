@@ -2,13 +2,15 @@
   margin: 0px;
   padding: 0px;
 }
-.jumbotron{
-  position: relative;
-  height: 100vh;
-  min-height: 300px;
-  background: url("/christiana-rivers-3_mQjo4Vb6A-unsplash.jpg") no-repeat center center;
+
+body {
+  background: url("/christiana-rivers-3_mQjo4Vb6A-unsplash.jpg") no-repeat center center fixed #C0C0C0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
+
 
 .notice {
   background-color: lightblue;
