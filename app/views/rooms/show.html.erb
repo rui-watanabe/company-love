@@ -1,27 +1,36 @@
-<h1></h1>
-
-<h4>参加者</h4>
+<div class="left-bottan">
+  <%= link_to "ユーザー一覧に戻る", "/users/index",class:"edit-link" %>
+</div>
+<h4 style="float:left; margin: 40px 30px 0px 0px; width:100%;" >気になる同士：</h4>
 <% @entries.each do |e| %>
-  <h5><strong><a href="/users/<%= e.user.id %>"><%= e.user.name %>さん</a></strong></h5>
+  <div class="user-name" style="display:inline-flex;><strong"><%= image_tag e.user.avatar, style:"width:100px; height:100px; margin:10px 10px 0 0;" %>
+  <a style="padding-right:10px; vertical-align: middle;" href="/users/<%= e.user.id %>"><%= e.user.name %>さん</a></strong></div>
 <% end %>
+</div>
+</div>
 
 <hr>
 <% if @messages.present? %>
   <% @messages.each do |m| %>
-    <div class="user_image"><%= image_tag m.user.avatar %></div>
-    <small><strong><a href="/users/<%= m.user_id %>"><%= m.user.name %>さん</a></strong></small>
-    <strong><%= m.content %></strong>
-    <hr>
+  <div class="chat">
+    <div class="chat-box">
+  <div class="chat-face">
+    <%= image_tag m.user.avatar, style:"width:100px; height:100px;" %></div>
+    <div class="chat-hukidashi">
+          <strong><%= m.content %></strong>
+          <br><%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
+  </div>
+</div>
+  </div>
+
   <% end %>
 <% else %>
   <h3 class="text-center">メッセージはまだありません</h3>
 <% end %>
-
+<div class="posts">
 <%= form_for @message do |f| %>
-  <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70 %>
+  <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
   <%= f.hidden_field :room_id, value: @room.id %>
-  <br>
-  <%= f.submit "投稿する" %>
+  <%= f.submit "投稿",class: 'form-submit'%>
 <% end %>
-
-<%= link_to "ユーザー一覧に戻る","/users/index" %>
+</div>
