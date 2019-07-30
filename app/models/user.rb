@@ -7,6 +7,8 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :name, presence: true
   validates :profile, presence: true
+  validates :avatar, presence: true
+
 
   has_one_attached :avatar
   has_many :tweets
@@ -15,4 +17,6 @@ class User < ApplicationRecord
   acts_as_follower   # フォロー機能
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
+
+ 
 end
