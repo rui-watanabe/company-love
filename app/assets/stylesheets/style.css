@@ -19,9 +19,15 @@ body {
 }
 
 .alert {
-  background-color: orangered;
+  background-color: rgba(209, 96, 54, 0.422);
   color: white;
   text-align: center;
+  font-size:15px
+}
+
+.alert-heading{
+  font-size:20px;
+  text-decoration: none;
 }
 
 .main users-index{
