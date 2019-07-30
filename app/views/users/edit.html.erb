@@ -1,12 +1,12 @@
 <div class="account-page" id="account-page">
   <div class="account-page__inner clearfix">
     <div class="account-page__inner--left account-page__header"></div>
-    <h2 style="text-align:center;"><%= @user.name %>さんのアカウントを編集</h2>
+    <h3 style= "text-align:center; margin:10px; color: lightblue;"><%= @user.name %> <span>さんのアカウント編集</span></h3>
     <div class="container">
     <div class="row">
       <div class="col-lg-4" style= "margin:0 auto;">
         <div class="card" >
-            <%= image_tag @user.avatar.variant(resize:'400x400').processed %>
+            <%= image_tag @user.avatar.variant(resize:'400x600').processed %>
           <div class="card-body" style= "margin:0 auto;">
             <p class="card-text" style="text-align:center;"><%= @user.profile %></p>
     
@@ -20,7 +20,15 @@
             <%= f.text_field :name, autofocus: true %>
           </div>
         </div>
-        <div class="field"  style="padding-top:20px;>
+        <div class="field">
+          <div class="field-label">
+            <%= f.label :profile %>
+          </div>
+          <div class="field-input">
+            <%= f.text_field :profile, autofocus: true %>
+          </div>
+        </div>
+        <div class="field"  style="padding-top:20px;">
           <div class="field-label">
             <%= f.label :avatar %>
           </div>
@@ -32,6 +40,13 @@
           <%= f.submit "Update", class: 'btn btn-outline-primary'%>
         </div>
       <% end %>
+
+      <% if @user.released? %>
+  <%= link_to '非公開にする',"/users/nonrelease/#{@user.id}", method: :patch,style:"float:right;" %>
+<% else %>
+  <%= link_to '公開する',"/users/release/#{@user.id}", method: :patch,style:"float:right;"%>
+<% end %>
+
     
       </div>
       </div>
@@ -44,7 +59,3 @@
     </div>
   </div>
 </div>
-
-<%=link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn' %>
-    <%= link_to "トップページに戻る", :back, class: 'btn' %>
-

@@ -18,5 +18,6 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
 
- 
+  enum status:{nonreleased: 0, released: 1}
+
 end

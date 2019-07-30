@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   #フォローとフォローを外すアクション
   get 'users/follow_list/:user_id' => 'users#follow_list'
   get 'users/follower_list/:user_id' => 'users#follower_list'
+  patch 'users/nonrelease/:user_id' => 'users#nonrelease'
+  patch 'users/release/:user_id' => 'users#release'
 end

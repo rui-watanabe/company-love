@@ -4,7 +4,7 @@
       <div class="col-lg-4" style= "margin:0 auto;">
           <h3 style= "text-align:center; margin:10px; color: lightblue;"><%= @user.name %> <span>さんのページ</span></h3>
         <div class="card" >
-            <%= image_tag @user.avatar.variant(resize:'400x400').processed %>
+            <%= image_tag @user.avatar.variant(resize:'400x600').processed %>
           <div class="card-body" style= "margin:0 auto;">
                       <p class="card-text" style="text-align:center; font-size: 30px;"><strong><%= current_user.name %></strong></p>       
             <p class="card-text" style="text-align:center;"><%= @user.profile %></p>  
