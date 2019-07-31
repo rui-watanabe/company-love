@@ -1,4 +1,22 @@
+<div class="main users-index">
+  <div class="container">
+    <h1 class="users-heading" style="text-align:center; padding:40px;">フォロー一覧</h1>
 <% @user.all_following.each do |user| %>
-  <%= user.name %> 
-  <%= link_to '詳細', user_path(user) %>
+   <div class="border" style= "padding-top: 25px;">
+  <div class="card-group">
+  <div class="card">
+    <%= image_tag user.avatar.variant(resize:'400x600').processed%></div>
+    <div class="card-body">
+    <h4 class="card-title"><%= user.name %></h4>
+      <p class="card-text">プロフィール：<%= user.profile%></p>
+      <div class="button_wrapper" >
+      <button class="btn btn-outline-primary" >
+        <%= link_to '詳細', "/users/#{user.id}"%>
+      </button>
+      </div>
+    </div>
+  </div>
 <% end %>
+</div>
+</div>
+</div>
