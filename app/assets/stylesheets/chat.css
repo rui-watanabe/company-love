@@ -17,6 +17,9 @@
   text-decoration: none;
 }
 
+.chat{
+  margin-bottom:70px;
+}
 .chat-box {
   width: 100%;
   height: auto;
