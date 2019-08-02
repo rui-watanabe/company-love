@@ -9,17 +9,22 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-color: pink;
+  color:white;
 }
 
+a{
+  color:white
+}
 
 .notice {
-  background-color: lightblue;
+  background-color: rgba(255, 182, 193, 0.333);
   color: white;
   text-align: center;
 }
 
 .alert {
-  background-color: rgba(209, 96, 54, 0.422);
+  background-color: rgba(255, 182, 193, 0.333);
   color: white;
   text-align: center;
   font-size:15px
@@ -44,4 +49,3 @@ body {
   display: block;
   clear: both;
 }
-

@@ -8,10 +8,10 @@
       <div class="row">
         <div class="col-md">
             <% if user_signed_in? && current_user.id == @tweet.user_id %>
-              <button class="btn btn-outline-primary">
+              <button class="btn btn-red100_ftg">
                 <%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %>
               </button>
-              <button class="btn btn-outline-primary">
+              <button class="btn btn-red100_ftg">
                 <%= link_to '削除', "/tweets/#{@tweet.id}"%>
               </button>
             <% end %>
@@ -26,7 +26,7 @@
     <% if current_user %>
       <%= form_tag("/tweets/#{@tweet.id}/comments",  method: :post,  id: "new_comment",style:"text-align:center;") do %>
         <textarea cols="30" name="text" placeholder="コメントする" rows="2" class="textbox"></textarea>
-      <input class="btn btn-outline-primary" type="submit" value="SENT">
+      <input class="btn btn-red50_rsd" type="submit" value="SENT">
       <% end %>
     <% end %>
     <div class="comments" style="margin: 30px;">   

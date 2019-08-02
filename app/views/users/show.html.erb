@@ -2,18 +2,18 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-4" style= "margin:0 auto;">
-          <h3 style= "text-align:center; margin:10px; color: lightblue;"><%= @user.name %> <span>さんのページ</span></h3>
-        <div class="card" >
+          <h3 style= "text-align:center; margin:10px;"><%= @user.name %> <span>さんのページ</span></h3>
+        <div class="card" style="color:black;">
             <%= image_tag @user.avatar.variant(resize:'400x600').processed %>
           <div class="card-body" style= "margin:0 auto;">
                       <p class="card-text" style="text-align:center; font-size: 30px;"><strong><%= current_user.name %></strong></p>       
             <p class="card-text" style="text-align:center;"><%= @user.profile %></p>  
 <%if current_user.id==@user.id%>
 <%= @user.follow_count %>
-<%= link_to "気になる", {controller: :users,action: :follow_list,user_id: @user.id}, method: :get %>
+<%= link_to "気になる", {controller: :users,action: :follow_list,user_id: @user.id}, method: :get,style:"color:lightblue;" %>
 <%# クリックすると、フォローリストに飛ぶ %>
 <%= @user.followers_count %>
-<%= link_to "あなたを気になる", {controller: :users,action: :follower_list,user_id: @user.id}, method: :get %>
+<%= link_to "あなたを気になる", {controller: :users,action: :follower_list,user_id: @user.id}, method: :get,style:"color:lightblue;" %>
 <%# #クリックすると、フォロワーリストに飛ぶ %>
 <%end%>
 <% if current_user.id != @user.id %>
@@ -40,11 +40,15 @@
 </div>
 <%if current_user.id==@user.id%>
 <bottan style="margin: 0 auto;">
-<%= link_to "プロフィール編集",edit_user_path, class:"btn btn-outline-primary" %>
+<%= link_to edit_user_path, class:"btn btn-red50_rsd" do%>
+<span style="color:white;">プロフィール編集</span>
+<% end %>
 </bottan>
 <% end %>
 <bottan style="padding-top: 10px; margin: 0 auto;">
-<%= link_to "ユーザー一覧に戻る","/users/index", class:"btn btn-outline-primary" %>
+<%= link_to "/users/index", class:"btn btn-red50_rsd" do%>
+<span style="color:white;">ユーザー一覧に戻る</span>
+<% end %>
 </bottan>
       </div>
       </div>
