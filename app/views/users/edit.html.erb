@@ -1,53 +1,52 @@
 <div class="account-page" id="account-page">
   <div class="account-page__inner clearfix">
     <div class="account-page__inner--left account-page__header"></div>
-    <h3 style= "text-align:center; margin:10px; color: lightblue;"><%= @user.name %> <span>さんのアカウント編集</span></h3>
+    <h3 style= "text-align:center; margin:10px;"><%= @user.name %> <span>さんのアカウント編集</span></h3>
     <div class="container">
     <div class="row">
       <div class="col-lg-4" style= "margin:0 auto;">
         <div class="card" >
-            <%= image_tag @user.avatar.variant(resize:'400x600').processed %>
+            <%= image_tag @user.avatar.variant(resize:'400x500').processed %>
           <div class="card-body" style= "margin:0 auto;">
             <p class="card-text" style="text-align:center;"><%= @user.profile %></p>
     
     <div class="account-page__inner--right user-form">
       <%= form_for(current_user) do |f| %>
-        <div class="field">
-          <div class="field-label">
-            <%= f.label :name %>
+        <div class="field" >
+          <div class="field-label" style="color:black">
+            <%= f.label :"名前",style:"font-weight: bold;"%>
           </div>
           <div class="field-input">
             <%= f.text_field :name, autofocus: true %>
           </div>
         </div>
-        <div class="field">
-          <div class="field-label">
-            <%= f.label :profile %>
+        <div class="field" style="margin-top:30px;">
+          <div class="field-label" style="color:black">
+            <%= f.label :"プロフィール",style:"font-weight: bold;"%>
           </div>
           <div class="field-input">
             <%= f.text_field :profile, autofocus: true %>
           </div>
         </div>
         <div class="field"  style="padding-top:20px;">
-          <div class="field-label">
-            <%= f.label :avatar %>
+          <div class="field-label" style="color:black">
+            <%= f.label :"画像の変更",style:"font-weight: bold;" %>
           </div>
           <div class="field-input">
             <%= f.file_field :avatar %>
           </div>
         </div>
-        <div class="actions" style="padding-top:20px;">
-          <%= f.submit "Update", class: 'btn btn-outline-primary'%>
-        </div>
-      <% end %>
+        <div class="actions" style="padding-top:50px;">
+          <%= f.submit "Update", class: 'btn btn-red100_ftg'%>
 
       <% if @user.released? %>
-  <%= link_to '非公開にする',"/users/nonrelease/#{@user.id}", method: :patch,style:"float:right;" %>
+  <%= link_to '非公開にする',"/users/nonrelease/#{@user.id}", method: :patch,style:"float:right;" ,class:"btn btn-outline-primary"%>
 <% else %>
-  <%= link_to '公開する',"/users/release/#{@user.id}", method: :patch,style:"float:right;"%>
+  <%= link_to '公開する',"/users/release/#{@user.id}", method: :patch,style:"float:right;",class:"btn btn-outline-primary"%>
 <% end %>
+      <% end %>
 
-    
+          </div>
       </div>
       </div>
             </div>
