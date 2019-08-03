@@ -6,7 +6,7 @@
         <div class="card" style="color:black;">
             <%= image_tag @user.avatar.variant(resize:'400x600').processed %>
           <div class="card-body" style= "margin:0 auto;">
-                      <p class="card-text" style="text-align:center; font-size: 30px;"><strong><%= current_user.name %></strong></p>       
+            <p class="card-text" style="text-align:center; font-size: 30px;"><strong><%= @user.name %></strong></p>       
             <p class="card-text" style="text-align:center;"><%= @user.profile %></p>  
 <%if current_user.id==@user.id%>
 <%= @user.follow_count %>
@@ -32,7 +32,7 @@
       <%= fields_for @entry do |e| %>
         <%= e.hidden_field :user_id, value: @user.id %>
       <% end %>
-      <%= f.submit "チャットを始める", class:"btn btn-primary"%>
+      <%= f.submit "チャットを始める", class:"btn btn-primary",style:"margin-top:30px;"%>
     <% end %>
   <% end %>
   <% end %>
