@@ -13,8 +13,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many :tweets
   has_many :comments 
-  acts_as_followable # フォロワー機能
-  acts_as_follower   # フォロー機能
+  acts_as_followable 
+  acts_as_follower  
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
 
