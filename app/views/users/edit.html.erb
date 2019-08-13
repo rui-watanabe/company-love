@@ -7,7 +7,7 @@
       <div class="col-lg-4" style= "margin:0 auto;">
         <div class="card" >
             <%= image_tag @user.avatar.variant(resize:'400x500').processed %>
-          <div class="card-body" style= "margin:0 auto;">
+          <div class="card-body">
             <p class="card-text" style="text-align:center;"><%= @user.profile %></p>
     
     <div class="account-page__inner--right user-form">
@@ -37,12 +37,12 @@
           </div>
         </div>
         <div class="actions" style="padding-top:50px;">
-          <%= f.submit "Update", class: 'btn btn-red100_ftg'%>
+          <%= f.submit "更新する", class: 'btn btn-pink100_rsd'%>
 
       <% if @user.released? %>
-  <%= link_to '非公開にする',"/users/nonrelease/#{@user.id}", method: :patch,style:"float:right;" ,class:"btn btn-outline-primary"%>
+  <%= link_to '非公開にする',"/users/nonrelease/#{@user.id}", method: :patch,style:"float:right;" ,class:"btn btn-blue100_rsd"%>
 <% else %>
-  <%= link_to '公開する',"/users/release/#{@user.id}", method: :patch,style:"float:right;",class:"btn btn-outline-primary"%>
+  <%= link_to '公開する',"/users/release/#{@user.id}", method: :patch,style:"float:right;",class:"btn btn-blue100_rsd"%>
 <% end %>
       <% end %>
 

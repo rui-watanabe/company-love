@@ -10,9 +10,9 @@
             <p class="card-text" style="text-align:center;"><%= @user.profile %></p>  
 <%if current_user.id==@user.id%>
   <%= @user.follow_count %>
-  <%= link_to "気になる", {controller: :users,action: :follow_list,user_id: @user.id}, method: :get,style:"color:lightblue;" %>
+  <%= link_to "人気になる", {controller: :users,action: :follow_list,user_id: @user.id}, method: :get %>
   <%= @user.followers_count %>
-  <%= link_to "あなたを気になる", {controller: :users,action: :follower_list,user_id: @user.id}, method: :get,style:"color:lightblue;" %>
+  <%= link_to "人あなたを気になる", {controller: :users,action: :follower_list,user_id: @user.id}, method: :get%>
 <%end%>
 <%= render 'follow_form' %><% if current_user.id != @user.id %>
   
@@ -23,7 +23,7 @@
 <% else %>
   <% if (current_user.followed_by? @user) && (@user.followed_by? current_user)  %>
   <% if @isRoom == true %>
-    <p style="text-align:center; margin-top:10px;"><a href="/rooms/<%= @roomId %>" class="btn btn-primary">チャットへ</a>
+    <p style="text-align:center; margin-top:10px;"><a href="/rooms/<%= @roomId %>" class="btn btn-pink200_rsd">チャットへ</a>
   <% else %>
     <%= form_for @room do |f| %>
       <%= fields_for @entry do |e| %>
@@ -36,15 +36,16 @@
 <% end %>
 </div>
 <%if current_user.id==@user.id%>
-<button style="margin: 0 auto;">
-<%= link_to edit_user_path, class:"btn btn-red50_rsd" do%>
-<span style="color:white;">プロフィール編集</span>
+<button style="margin: 0 auto;"class="btn btn-red50_rsd">
+<%= link_to edit_user_path do%>
+<span style="color: ">プロフィール編集</span>
 <% end %>
 </button>
 <% end %>
-<button style="padding-top: 10px; margin: 0 auto;">
-<%= link_to "/users/index", class:"btn btn-red50_rsd" do%>
-<span style="color:white;">ユーザー一覧に戻る</span>
+<button style=" margin: 20px auto 0px;" class="btn btn-red50_rsd">
+<%= link_to "/users/index" do %>
+<span>ユーザー一覧に戻る</span>
+</button>
 <% end %>
 
 </button>
