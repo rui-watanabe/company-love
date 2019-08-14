@@ -1,6 +1,7 @@
-<div class="card-group" style="width:80%; margin: 30px;">
-  <div class="card" style="width:18rem;">
-    <%= image_tag @tweet.user.avatar.variant(resize:'400x600').processed %></div>
+<div class="card-group" style="width:80%; margin: 30px 300px;">
+  <div class="border">
+    <%= image_tag @tweet.user.avatar,style:"width:360px; height:360px;"%>
+  </div>
     <div class="card-body">
     <h4 class="card-title"><%= @tweet.user.name %></h4>
       <p class="card-text"><%= @tweet.text%></p>
@@ -25,8 +26,8 @@
     <!-- ここからフォーム -->
     <% if current_user %>
       <%= form_tag("/tweets/#{@tweet.id}/comments",  method: :post,  id: "new_comment",style:"text-align:center;") do %>
-        <textarea cols="30" name="text" placeholder="コメントする" rows="2" class="textbox"></textarea>
-      <input class="btn btn-red50_rsd" type="submit" value="SENT">
+        <textarea cols="95" name="text" placeholder="コメントする" rows="5" class="textbox"></textarea>
+      <input class="btn btn-red50_rsd" type="submit" value="SENT" style="display: inline-block; margin-bottom: 30px;">
       <% end %>
     <% end %>
     <div class="comments" style="margin: 30px;">   
