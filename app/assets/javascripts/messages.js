@@ -27,7 +27,7 @@ $(function(){
     .done(function(data){
       var html = buildMessage(data);
       $('.chats').append(html)
-      $('.chats').animate({scrollTop: $('.chats')[0].scrollHeight}, 'fast');
+      $('html,body').animate({scrollTop: $('.chats')[0].scrollHeight}, 'fast');
       $("form")[0].reset();
     })
     .fail(function(){
